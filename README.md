@@ -1,1 +1,1 @@
-# Like
+# Like Module for SimpliCMS
