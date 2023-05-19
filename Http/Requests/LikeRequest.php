@@ -8,10 +8,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class LikeRequest extends FormRequest {
 
-    public function authorize() {
-        return $this->user()->can('like', $this->likeable());
-    }
-
     public function rules() {
         return [
             // the class of the liked object
