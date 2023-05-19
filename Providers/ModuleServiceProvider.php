@@ -4,6 +4,7 @@ namespace Modules\Like\Providers;
 
 use Konekt\Concord\BaseModuleServiceProvider;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Schema;
 
 class ModuleServiceProvider extends BaseModuleServiceProvider
@@ -24,6 +25,7 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
     {
         // Your module's boot logic here
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(GateServiceProvider::class);
         $this->app->register(PluginServiceProvider::class);
         $this->ViewPaths();
         $this->adminViewPaths();
