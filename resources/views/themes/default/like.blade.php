@@ -17,12 +17,18 @@
         <input type="hidden" name="likeable_type" value="{!! get_class($model) !!}"/>
         <input type="hidden" name="id" value="{{ $model->id }}"/>
         <button class="btn btn-lg like-button" data-action="unlike">
-            <i class="fa-regular fa-thumbs-down text-primary" aria-hidden="true"></i>
+            <i class="fa-sharp fa-solid fa-thumbs-up text-primary" aria-hidden="true"></i>
         </button>
     </form>
     @endcan
 </div>
-
+@guest
+<div class="like-form">
+    <button class="btn btn-lg like-button" data-action="like">
+        <i class="fa-regular fa-thumbs-up text-primary" aria-hidden="true"></i>
+    </button>
+</div>
+@endguest
 <span class="likes-count">
     {{ trans_choice('{0} no likes|{1} :count like|[2,*] :count likes', count($model->likes), ['count' => count($model->likes)]) }}
 </span>
@@ -50,7 +56,7 @@
                             '<input type="hidden" name="likeable_type" value="' + '{!! addslashes(get_class($model)) !!}' + '"/>' +
                             '<input type="hidden" name="id" value="{{ $model->id }}"/>' +
                             '<button class="btn btn-lg like-button" data-action="unlike">' +
-                            '<i class="fa-regular fa-thumbs-down text-primary" aria-hidden="true"></i>' +
+                            '<i class="fa-sharp fa-solid fa-thumbs-up text-primary" aria-hidden="true"></i>' +
                             '</button>' +
                             '</form>');
                     } else if (action === 'unlike') {
@@ -66,6 +72,6 @@
                     }
             });
     });
-            });
+    });
 </script>
 @endpush
