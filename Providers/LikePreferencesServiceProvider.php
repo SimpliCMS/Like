@@ -4,7 +4,7 @@ namespace Modules\Like\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class LikePreferencesProvider extends ServiceProvider
+class LikePreferencesServiceProvider extends ServiceProvider
 {
     
     /**
